@@ -1,0 +1,30 @@
+/**/
+.margin-top-40{
+    margin-top:40px !important;
+    }
+
+.item header{
+    padding:5px;
+}
+.item p{
+    padding:5px;
+}
+
+.item{
+    border-bottom: 1px solid lightgray;
+}
+
+.hidden{
+    display: none !important;
+}
+
+.comment-section{
+    min-height: 80px;
+}
+
+.comment-section textarea{
+    margin: 5px;
+    padding:3px;
+    width: 95%;
+    height: 100px;
+}
