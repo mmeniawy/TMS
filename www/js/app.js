@@ -5,6 +5,7 @@
   function onDeviceReady() {
     console.log(navigator.camera);
   }
+  
 
   var currentItem = {};
   var vehicles = [
