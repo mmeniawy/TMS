@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src * data:; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
   <script src="components/loader.js"></script>
   <link rel="stylesheet" href="components/loader.css">
-  <link rel="stylesheet" href="components/monaca-onsenui/css/onsen-css-components-sunshine-theme.css">
+  <link rel="stylesheet" href="components/monaca-onsenui/css/onsen-css-components-blue-theme.css">
   <link rel="stylesheet" href="css/style.css">
   <script src="js/underscore.js"></script>
   <script src="js/app.js"></script>
@@ -47,22 +47,66 @@
 
 <body>    
 
-  <ons-navigator page="list.html" var="app.navi"></ons-navigator>
+  <ons-navigator page="login.html" var="app.navi"></ons-navigator>
+
+    <ons-template id="login.html">
+    <ons-page id="login-page">
+        <ons-toolbar>
+            <div class="center">Log In</div>
+            <div class="right"><ons-toolbar-button>Close</ons-toolbar-button></div>
+        </ons-toolbar>
+        
+        <div class="login-form">
+            <input type="email" class="text-input--underbar" placeholder="Email" value="">
+            <input type="password" class="text-input--underbar" placeholder="Password" value="">
+            <br><br>
+            <ons-button modifier="large" class="login-button" id="try-login">Log In</ons-button>
+            <br><br>
+            <!--<ons-button modifier="quiet" class="forgot-password">Forgot password?</ons-button> -->
+        </div>
+    </ons-page>
+  </ons-template>
+
 
   <ons-template id="list.html">
     <ons-page id="list-page">
       <ons-toolbar>
-        <div class="center">TMS</div>
+        <div class="center">Truck Loads</div>
       </ons-toolbar>
+      <ons-list id="voyages-list" class=" margin-top-40">
+        
+      </ons-list>
+      <ons-list-item id=T1 modifier="chevron" class="item hidden" tag="voyage">
+          <ons-row>
+            <ons-col>
+              <header>
+                <span class="item-title" tag="ETA">{vin}</span>
+                <span class="item-label" tag="toDT">ETA</span>
+              </header>
+              <p class="item-desc" tag="origin">{model}</p>
+              <p class="item-desc" tag="destination">{model}</p>
+            </ons-col>
+          </ons-row>                          
+        </ons-list-item>
+    </ons-page>
+  </ons-template>
+
+  <ons-template id="list-vehicles.html">
+    <ons-page id="list-vehicles-page">
+      <ons-toolbar>
+        <div class="left"><ons-back-button>Back</ons-back-button></div>
+        <div class="center">Vehicles</div>
+      </ons-toolbar>
+      
       <div>
         <div class="center">
             <input id="filter-vehicles" class="search-input" placeholder="search VIN"/>
         </div>
       <div>
-      <ons-list class=" margin-top-40">
+      <ons-list id="vehicles-list" class="margin-top-40">
         
       </ons-list>
-      <ons-list-item id=T modifier="chevron" class="item hidden">
+            <ons-list-item id=T modifier="chevron" class="item hidden" tag="vehicle">
           <ons-row>
             <ons-col>
               <header>
@@ -75,6 +119,7 @@
         </ons-list-item>
     </ons-page>
   </ons-template>
+
 
   <ons-template id="detail.html">
     <ons-page id="detail-page">
@@ -109,6 +154,11 @@
           Add Damage Report
         </ons-list-item>
       </ons-list>
+      <ons-list>
+          <ons-list-header>Damage Reports</ons-list-header>
+          <ons-list-item> Report 1</ons-list-item>
+          <ons-list-item> Report 2</ons-list-item>
+      </ons-list>
     </ons-page>
   </ons-template>
 
@@ -142,8 +192,42 @@
         <ons-list-item><input type="checkbox"  /> Damaged Chassis</ons-list-item>
         <ons-list-item><input type="checkbox"  /> Polishing</ons-list-item>
         <ons-list-item><input type="checkbox"  /> Lights</ons-list-item>
+        <ons-list-item><o</ons-list-item>
         <ons-list-item class="comment-section"><textarea name="comment" placeholder="enter detailed comments for the damages"></textarea></ons-list-item>
-        <ons-button class="center" id="btn-save-report">Save</ons-button>        
+        <ons-button modifier="large" class="login-button" id="btn-save-report">Save</ons-button>
+
+        </ons-list>
+      </ons-list>
+    </ons-page>
+  </ons-template>
+  
+    <ons-template id="damage-report-photos.html">
+    <ons-page id="damage-report-photos">
+
+      <ons-toolbar>
+        <div class="left"><ons-back-button>Back</ons-back-button></div>
+        <div class="center">Damage Report Photos</div>
+      </ons-toolbar>
+
+      <ons-list modifier="inset" style="margin-top: 10px">
+        <ons-list-item class="item" tag="no-navigate">
+          <ons-row>
+            <ons-col width="60px"> 
+              <div class="item-thum"></div>
+            </ons-col>
+            <ons-col>
+              <header>
+                <span class="item-title">Title</span>
+                <span class="item-label">Foobar</span>
+              </header>
+              <p class="item-desc">desc</p>
+            </ons-col>
+          </ons-row>
+        </ons-list-item>
+
+        <ons-list-item><o</ons-list-item>
+        <ons-button modifier="large" class="login-button" id="take-picture">Save</ons-button>
+
         </ons-list>
       </ons-list>
     </ons-page>
